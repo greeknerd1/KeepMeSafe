@@ -12,9 +12,12 @@
 		1375C3922107A80300611E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3902107A80300611E8C /* Main.storyboard */; };
 		1375C3942107A80400611E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3932107A80400611E8C /* Assets.xcassets */; };
 		1375C3972107A80400611E8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3952107A80400611E8C /* LaunchScreen.storyboard */; };
+		1375C3A12107ADDF00611E8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3A02107ADDF00611E8C /* GoogleService-Info.plist */; };
+		6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01CA58C568EF6494F0318775 /* Pods-KeepMeSafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepMeSafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe.debug.xcconfig"; sourceTree = "<group>"; };
 		1375C3892107A80300611E8C /* KeepMeSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepMeSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1375C38C2107A80300611E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1375C38E2107A80300611E8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		1375C3932107A80400611E8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1375C3962107A80400611E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1375C3982107A80400611E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1375C3A02107ADDF00611E8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepMeSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepMeSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				1375C38B2107A80300611E8C /* KeepMeSafe */,
 				1375C38A2107A80300611E8C /* Products */,
+				FEB39B6E97CBAD68CCB0359C /* Pods */,
+				297A8C42FF5E69908BD0F7E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		1375C38B2107A80300611E8C /* KeepMeSafe */ = {
 			isa = PBXGroup;
 			children = (
+				1375C3A02107ADDF00611E8C /* GoogleService-Info.plist */,
 				1375C38C2107A80300611E8C /* AppDelegate.swift */,
 				1375C38E2107A80300611E8C /* ViewController.swift */,
 				1375C3902107A80300611E8C /* Main.storyboard */,
@@ -64,6 +74,23 @@
 			path = KeepMeSafe;
 			sourceTree = "<group>";
 		};
+		297A8C42FF5E69908BD0F7E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEB39B6E97CBAD68CCB0359C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01CA58C568EF6494F0318775 /* Pods-KeepMeSafe.debug.xcconfig */,
+				E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1375C39B2107A80400611E8C /* Build configuration list for PBXNativeTarget "KeepMeSafe" */;
 			buildPhases = (
+				44CB3DA0D68C481106A29714 /* [CP] Check Pods Manifest.lock */,
 				1375C3852107A80300611E8C /* Sources */,
 				1375C3862107A80300611E8C /* Frameworks */,
 				1375C3872107A80300611E8C /* Resources */,
+				3D3B3A70808A2894319BF5AB /* [CP] Embed Pods Frameworks */,
+				894743B10E4E5435BD265001 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,12 +153,76 @@
 			buildActionMask = 2147483647;
 			files = (
 				1375C3972107A80400611E8C /* LaunchScreen.storyboard in Resources */,
+				1375C3A12107ADDF00611E8C /* GoogleService-Info.plist in Resources */,
 				1375C3942107A80400611E8C /* Assets.xcassets in Resources */,
 				1375C3922107A80300611E8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D3B3A70808A2894319BF5AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44CB3DA0D68C481106A29714 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KeepMeSafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		894743B10E4E5435BD265001 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1375C3852107A80300611E8C /* Sources */ = {
@@ -278,6 +372,7 @@
 		};
 		1375C39C2107A80400611E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01CA58C568EF6494F0318775 /* Pods-KeepMeSafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +390,7 @@
 		};
 		1375C39D2107A80400611E8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
