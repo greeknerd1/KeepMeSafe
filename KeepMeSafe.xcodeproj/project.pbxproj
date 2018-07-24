@@ -15,6 +15,10 @@
 		1375C3A82107B24D00611E8C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3A72107B24D00611E8C /* HomeViewController.swift */; };
 		1375C3AA2107B26000611E8C /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3A92107B26000611E8C /* ConfigureViewController.swift */; };
 		1375C3AC2107B27200611E8C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3AB2107B27200611E8C /* HistoryViewController.swift */; };
+		1375C3B12107B48200611E8C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3B02107B48200611E8C /* Login.storyboard */; };
+		1375C3B32107B50600611E8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3B22107B50600611E8C /* LoginViewController.swift */; };
+		1375C3B52107D9AD00611E8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3B42107D9AD00611E8C /* User.swift */; };
+		1375C3B72107DE2D00611E8C /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3B62107DE2D00611E8C /* CreateUsernameViewController.swift */; };
 		6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,10 @@
 		1375C3A72107B24D00611E8C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1375C3A92107B26000611E8C /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		1375C3AB2107B27200611E8C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		1375C3B02107B48200611E8C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		1375C3B22107B50600611E8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1375C3B42107D9AD00611E8C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1375C3B62107DE2D00611E8C /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepMeSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepMeSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +95,8 @@
 				1375C3A72107B24D00611E8C /* HomeViewController.swift */,
 				1375C3A92107B26000611E8C /* ConfigureViewController.swift */,
 				1375C3AB2107B27200611E8C /* HistoryViewController.swift */,
+				1375C3B22107B50600611E8C /* LoginViewController.swift */,
+				1375C3B62107DE2D00611E8C /* CreateUsernameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -96,6 +106,7 @@
 			children = (
 				1375C3902107A80300611E8C /* Main.storyboard */,
 				1375C3952107A80400611E8C /* LaunchScreen.storyboard */,
+				1375C3B02107B48200611E8C /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 		1375C3AD2107B32700611E8C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1375C3B42107D9AD00611E8C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +223,7 @@
 				1375C3972107A80400611E8C /* LaunchScreen.storyboard in Resources */,
 				1375C3A12107ADDF00611E8C /* GoogleService-Info.plist in Resources */,
 				1375C3942107A80400611E8C /* Assets.xcassets in Resources */,
+				1375C3B12107B48200611E8C /* Login.storyboard in Resources */,
 				1375C3922107A80300611E8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,8 +300,11 @@
 			files = (
 				1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */,
 				1375C3A82107B24D00611E8C /* HomeViewController.swift in Sources */,
+				1375C3B52107D9AD00611E8C /* User.swift in Sources */,
 				1375C3AA2107B26000611E8C /* ConfigureViewController.swift in Sources */,
+				1375C3B32107B50600611E8C /* LoginViewController.swift in Sources */,
 				1375C3AC2107B27200611E8C /* HistoryViewController.swift in Sources */,
+				1375C3B72107DE2D00611E8C /* CreateUsernameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
