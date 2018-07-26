@@ -38,10 +38,11 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
     }
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
-        let selectedContactName = contactProperty.contact.givenName
+        let selectedContactFirstName = contactProperty.contact.givenName
+        let selectedContactLastName = contactProperty.contact.familyName
         let selectedContactPhoneNumber = (contactProperty.value as! CNPhoneNumber).value(forKey: "digits") as! String
-        print(selectedContactName)
-        print(selectedContactPhoneNumber)
+        print("\(selectedContactFirstName) \(selectedContactLastName)") //prints firstName
+        print(selectedContactPhoneNumber) //prints lastName
     }
     
 }

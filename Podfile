@@ -10,7 +10,7 @@ target 'KeepMeSafe' do
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-
+  pod 'Alamofire', '~> 4.4'
   # Pods for KeepMeSafe
 
 end
