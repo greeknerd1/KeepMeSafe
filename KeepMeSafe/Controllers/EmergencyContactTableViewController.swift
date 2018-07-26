@@ -41,8 +41,10 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
         let selectedContactFirstName = contactProperty.contact.givenName
         let selectedContactLastName = contactProperty.contact.familyName
         let selectedContactPhoneNumber = (contactProperty.value as! CNPhoneNumber).value(forKey: "digits") as! String
-        print("\(selectedContactFirstName) \(selectedContactLastName)") //prints firstName
-        print(selectedContactPhoneNumber) //prints lastName
+        let firstAndLastSelectedContactName = "\(selectedContactFirstName) \(selectedContactLastName)"
+        print("\(selectedContactFirstName) \(selectedContactLastName)") //prints firstName and lastName
+        print(selectedContactPhoneNumber) //prints phoneNumber
+        //TextMessageService.sendTextMessage(phoneNumber: selectedContactPhoneNumber, message: "\(firstAndLastSelectedContactName) was selected")
     }
     
 }
