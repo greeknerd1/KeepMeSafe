@@ -55,11 +55,14 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
         
         let contact = contacts[indexPath.row]
         let name = contact.name
         let number = contact.number
+        
+        cell.nameLabel.text = name
+        cell.numberLabel.text = number
         
         return cell
     }
