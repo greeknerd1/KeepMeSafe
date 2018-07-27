@@ -48,6 +48,11 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
         let firstAndLastSelectedContactName = "\(selectedContactFirstName) \(selectedContactLastName)"
         let selectedContactPhoneNumber = (contactProperty.value as! CNPhoneNumber).value(forKey: "digits") as! String
         ContactService.create(contactName: firstAndLastSelectedContactName, contactNumber: selectedContactPhoneNumber)
+        //everytime a contact is added, it updates the contacts array and reloads them into the table view
+        ContactService.contacts(for: User.current) { (contacts) in
+            self.contacts = contacts
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
