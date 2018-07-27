@@ -37,17 +37,4 @@ struct UserService {
             completion(user)
         })
     }
-    
-    //Working on here
-//    static func createContact(contactFullName: String, contactPhoneNumber: String) {
-//        
-//        //can use User.current.uid?? Which is better
-//        guard let userUID = Auth.auth().currentUser?.uid else { return }
-//        
-//        let contactAttrs = ["contact": contactFullName]
-//        let ref = Database.database().reference().child("contacts").child(userUID)
-//        
-//        
-//        
-//    }
 }
