@@ -25,7 +25,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
             self.scrollableTableView.reloadData()
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         ContactService.contacts(for: User.current) { (contacts) in
             self.contacts = contacts

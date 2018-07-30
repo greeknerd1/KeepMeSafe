@@ -72,6 +72,18 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
         return cell
     }
     
+    //delete function 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let contactToDelete = contacts[indexPath.row]
+            ContactService.remove(contact: contactToDelete)
+            ContactService.contacts(for: User.current) { (contacts) in
+                self.contacts = contacts
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     
     
 }

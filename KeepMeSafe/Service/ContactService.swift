@@ -32,4 +32,16 @@ struct ContactService {
             completion(contacts)
         })
     }
+    
+    static func remove(contact: Contact) {
+        let currentUser = User.current
+        let ref = Database.database().reference().child("contacts").child(currentUser.uid).child(contact.key!)
+        if ref != nil{
+            ref.removeValue()
+        }
+        else {
+            print("Error with removing contact in ContactService")
+        }
+        
+    }
 }
