@@ -15,7 +15,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
     var contacts = [Contact]()
     let manager = CLLocationManager()
     
-    var mainStringToDisplay = "USER is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is: "
+    var mainStringToDisplay = "USER is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is:"
     var locationStringToDisplay = "LOCATION"
         
     @IBOutlet weak var scrollableTableView: UITableView!
@@ -37,7 +37,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-        mainStringToDisplay = "\(User.current.username) is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is: "
+        mainStringToDisplay = "\(User.current.username) is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is:"
         messageTextLabel.text = "\(mainStringToDisplay) \(locationStringToDisplay)"
     }
     
@@ -70,7 +70,6 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
                     if let countryCode = place.isoCountryCode {
                         self.locationStringToDisplay.append(", \(countryCode)")
                     }
-                    print("location updated")
                     self.messageTextLabel.text = "\(self.mainStringToDisplay) \(self.locationStringToDisplay)"
                 }
             }

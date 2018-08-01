@@ -20,10 +20,13 @@ class HomeViewController: UIViewController {
     var timer = Timer()
     var audioPlayer = AVAudioPlayer()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         cancelLabel.isEnabled = false
+        cancelLabel.tintColor = UIColor.darkGray
+        
         do {
             let audioPath = Bundle.main.path(forResource: "alarm", ofType: ".mp3")
             try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
@@ -44,6 +47,10 @@ class HomeViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HomeViewController.counter), userInfo: nil, repeats: true)
+        
+        cancelLabel.tintColor = startLabel.tintColor
+        startLabel.tintColor = UIColor.darkGray
+        
         sliderLabel.isEnabled = false
         startLabel.isEnabled = false
         cancelLabel.isEnabled = true
@@ -67,6 +74,10 @@ class HomeViewController: UIViewController {
         timeLabel.text = "60 seconds"
         
         audioPlayer.stop()
+        
+        startLabel.tintColor = cancelLabel.tintColor
+        cancelLabel.tintColor = UIColor.darkGray
+        
         sliderLabel.isEnabled = true
         startLabel.isEnabled = true
         cancelLabel.isEnabled = false
