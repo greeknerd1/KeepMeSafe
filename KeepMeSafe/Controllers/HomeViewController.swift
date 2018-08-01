@@ -57,21 +57,27 @@ class HomeViewController: UIViewController {
     }
     
     @objc func counter() {
-        seconds -= 1
-        timeLabel.text = String(seconds) + " seconds"
         
         if (seconds == 0) {
             timer.invalidate()
             //implement sending text message and location to contacts and showing up a notification (like alarm) here to call 911... may have to re-enable cancel button or something
             audioPlayer.play()
+            return
         }
+        
+        if(seconds == 10 || seconds == 9 || seconds == 8 || seconds == 7 || seconds == 6 || seconds == 5 || seconds == 4 || seconds == 3 || seconds == 2 || seconds == 1) {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        }
+        
+        seconds -= 1
+        timeLabel.text = String(seconds) + " seconds"
+        
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
         timer.invalidate()
-        seconds = 60
-        sliderLabel.setValue(60, animated: true)
-        timeLabel.text = "60 seconds"
+        seconds = Int(sliderLabel.value)
+        timeLabel.text = String(seconds) + " seconds"
         
         audioPlayer.stop()
         

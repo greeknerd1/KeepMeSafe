@@ -82,7 +82,7 @@
                                         <color key="textColor" red="0.7851959074" green="0.19715429879999999" blue="0.1037396726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="10" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="JFi-lG-A82">
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="20" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="JFi-lG-A82">
                                         <rect key="frame" x="65" y="132" width="247" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.7851959074" green="0.19715429879999999" blue="0.1037396726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
