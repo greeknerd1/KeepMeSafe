@@ -13,6 +13,7 @@
 		1346BDAD210B979A00D7E6EA /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346BDAC210B979A00D7E6EA /* ContactCell.swift */; };
 		1346BDB1210BD51800D7E6EA /* ScrollableContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346BDB0210BD51800D7E6EA /* ScrollableContactCell.swift */; };
 		1346BDB32110F69900D7E6EA /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1346BDB22110F69900D7E6EA /* alarm.mp3 */; };
+		1346BDB5211107BA00D7E6EA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1346BDB4211107BA00D7E6EA /* CoreLocation.framework */; };
 		1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C38C2107A80300611E8C /* AppDelegate.swift */; };
 		1375C3922107A80300611E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3902107A80300611E8C /* Main.storyboard */; };
 		1375C3942107A80400611E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3932107A80400611E8C /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		1346BDAC210B979A00D7E6EA /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1346BDB0210BD51800D7E6EA /* ScrollableContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableContactCell.swift; sourceTree = "<group>"; };
 		1346BDB22110F69900D7E6EA /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = ../../../../../Downloads/alarm.mp3; sourceTree = "<group>"; };
+		1346BDB4211107BA00D7E6EA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1375C3892107A80300611E8C /* KeepMeSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepMeSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1375C38C2107A80300611E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1375C3912107A80300611E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1346BDB5211107BA00D7E6EA /* CoreLocation.framework in Frameworks */,
 				6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +178,7 @@
 		297A8C42FF5E69908BD0F7E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1346BDB4211107BA00D7E6EA /* CoreLocation.framework */,
 				20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */,
 			);
 			name = Frameworks;
