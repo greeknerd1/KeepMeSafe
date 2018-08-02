@@ -24,6 +24,7 @@ struct UserService {
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 let user = User(snapshot: snapshot)
                 completion(user)
+                MessageService.create(mainMessageName: "\(firUser.displayName ?? "USER") is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is:", locationMessageName: "LOCATION")
             })
         }
     }

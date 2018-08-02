@@ -13,10 +13,10 @@ import CoreLocation
 class ConfigureViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     var contacts = [Contact]()
-    let manager = CLLocationManager()
     
-    var mainStringToDisplay = "USER is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is:"
-    var locationStringToDisplay = "LOCATION"
+    var messages = [Message]()
+    
+    let manager = CLLocationManager()
         
     @IBOutlet weak var scrollableTableView: UITableView!
     @IBOutlet weak var messageTextLabel: UILabel!
@@ -37,8 +37,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-        mainStringToDisplay = "\(User.current.username) is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is:"
-        messageTextLabel.text = "\(mainStringToDisplay) \(locationStringToDisplay)"
+        updateMessageField()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -51,26 +50,29 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
             else {
                 if let place = placemark?[0] {
                     //place.postalAddress! <-- this contains all the relevant location information
-                
+                    var newLocationMessage = ""
                     if let name = place.name {
-                       self.locationStringToDisplay = name
+                       newLocationMessage = name
                     }
                     if let subLocality = place.subLocality {
-                        self.locationStringToDisplay.append(", \(subLocality)")
+                        newLocationMessage.append(", \(subLocality)")
                     }
                     if let locality = place.locality {
-                        self.locationStringToDisplay.append(", \(locality)")
+                        newLocationMessage.append(", \(locality)")
                     }
                     if let adminArea = place.administrativeArea {
-                        self.locationStringToDisplay.append(", \(adminArea)")
+                        newLocationMessage.append(", \(adminArea)")
                     }
                     if let postalCode = place.postalCode {
-                        self.locationStringToDisplay.append(", \(postalCode)")
+                        newLocationMessage.append(", \(postalCode)")
                     }
                     if let countryCode = place.isoCountryCode {
-                        self.locationStringToDisplay.append(", \(countryCode)")
+                        newLocationMessage.append(", \(countryCode)")
                     }
-                    self.messageTextLabel.text = "\(self.mainStringToDisplay) \(self.locationStringToDisplay)"
+                    self.updateMessageField()
+                    if self.messages.isEmpty { return }
+                    MessageService.edit(message: (self.messages.first)!, mainMessage: (self.messages.first?.mainMessage)!, locationMessage: newLocationMessage)
+                    self.updateMessageField()
                 }
             }
         }
@@ -81,18 +83,21 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
             self.contacts = contacts
             self.scrollableTableView.reloadData()
         }
+        updateMessageField()
     }
     
     @IBAction func editMessageButtonPressed(_ sender: UIButton) {
         let addAlert = UIAlertController(title: "Emergency Message", message: "Edit your message", preferredStyle: .alert)
         addAlert.addTextField { (textField: UITextField) in
-            textField.placeholder  = "\(self.mainStringToDisplay) \(self.locationStringToDisplay)"
+            textField.placeholder  = "\(self.messages.first?.mainMessage ?? "mainMessage") \(self.messages.first?.locationMessage ?? "locationMessage")"
         }
         addAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action:UIAlertAction) in
             guard let message = addAlert.textFields?.first?.text else { return }
             if message != "" {
-                self.mainStringToDisplay = message
-                self.messageTextLabel.text = "\(self.mainStringToDisplay) \(self.locationStringToDisplay)"
+                self.updateMessageField()
+                if self.messages.isEmpty { return }
+                MessageService.edit(message: (self.messages.first)!, mainMessage: message, locationMessage: (self.messages.first?.locationMessage)!)
+                self.updateMessageField()
             }
         }))
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -102,6 +107,13 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateMessageField() {
+        MessageService.messages(for: User.current) { (messages) in
+            self.messages = messages
+            self.messageTextLabel.text = "\(messages.first?.mainMessage ?? "loadingMainMessage") \(messages.first?.locationMessage ?? "loadingLocationMessage")"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

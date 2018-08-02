@@ -14,6 +14,8 @@
 		1346BDB1210BD51800D7E6EA /* ScrollableContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346BDB0210BD51800D7E6EA /* ScrollableContactCell.swift */; };
 		1346BDB32110F69900D7E6EA /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1346BDB22110F69900D7E6EA /* alarm.mp3 */; };
 		1346BDB5211107BA00D7E6EA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1346BDB4211107BA00D7E6EA /* CoreLocation.framework */; };
+		1346BDB7211228B000D7E6EA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346BDB6211228B000D7E6EA /* Message.swift */; };
+		1346BDB92112299B00D7E6EA /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346BDB82112299B00D7E6EA /* MessageService.swift */; };
 		1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C38C2107A80300611E8C /* AppDelegate.swift */; };
 		1375C3922107A80300611E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3902107A80300611E8C /* Main.storyboard */; };
 		1375C3942107A80400611E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1375C3932107A80400611E8C /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		1346BDB0210BD51800D7E6EA /* ScrollableContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableContactCell.swift; sourceTree = "<group>"; };
 		1346BDB22110F69900D7E6EA /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = ../../../../../Downloads/alarm.mp3; sourceTree = "<group>"; };
 		1346BDB4211107BA00D7E6EA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1346BDB6211228B000D7E6EA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		1346BDB82112299B00D7E6EA /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		1375C3892107A80300611E8C /* KeepMeSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepMeSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1375C38C2107A80300611E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1375C3912107A80300611E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			children = (
 				1375C3B42107D9AD00611E8C /* User.swift */,
 				1346BDA8210B7FF300D7E6EA /* Contact.swift */,
+				1346BDB6211228B000D7E6EA /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			children = (
 				1375C3B82107E32E00611E8C /* UserService.swift */,
 				1346BDAA210B80C300D7E6EA /* ContactService.swift */,
+				1346BDB82112299B00D7E6EA /* MessageService.swift */,
 				1346BDA6210A7A3500D7E6EA /* TextMessageService.swift */,
 			);
 			path = Service;
@@ -338,6 +344,7 @@
 				1346BDAD210B979A00D7E6EA /* ContactCell.swift in Sources */,
 				1346BDB1210BD51800D7E6EA /* ScrollableContactCell.swift in Sources */,
 				1346BDA9210B7FF300D7E6EA /* Contact.swift in Sources */,
+				1346BDB7211228B000D7E6EA /* Message.swift in Sources */,
 				1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */,
 				1375C3A82107B24D00611E8C /* HomeViewController.swift in Sources */,
 				1375C3B52107D9AD00611E8C /* User.swift in Sources */,
@@ -347,6 +354,7 @@
 				1375C3B32107B50600611E8C /* LoginViewController.swift in Sources */,
 				1375C3AC2107B27200611E8C /* HistoryTableViewController.swift in Sources */,
 				1375C3BF2108FE9A00611E8C /* EmergencyContactTableViewController.swift in Sources */,
+				1346BDB92112299B00D7E6EA /* MessageService.swift in Sources */,
 				1346BDAB210B80C300D7E6EA /* ContactService.swift in Sources */,
 				1375C3B72107DE2D00611E8C /* CreateUsernameViewController.swift in Sources */,
 				1375C3BB2107E81E00611E8C /* Constants.swift in Sources */,
