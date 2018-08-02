@@ -20,7 +20,6 @@ struct MessageService {
         messageRef.updateChildValues(dict)
     }
     
-    //Something's wrong with this function
     static func messages(for user: User, completion: @escaping ([Message]) -> Void) {
         let ref = Database.database().reference().child("messages").child(user.uid)
         

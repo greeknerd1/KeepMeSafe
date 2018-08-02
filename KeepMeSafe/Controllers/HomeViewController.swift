@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sliderLabel: UISlider!
@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     var seconds = 60
     var timer = Timer()
-    var audioPlayer = AVAudioPlayer()
+    var alarmAudioPlayer = AVAudioPlayer()
     
     
     override func viewDidLoad() {
@@ -28,8 +28,8 @@ class HomeViewController: UIViewController {
         cancelLabel.tintColor = UIColor.darkGray
         
         do {
-            let audioPath = Bundle.main.path(forResource: "alarm", ofType: ".mp3")
-            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+            let alarmAudioPath = Bundle.main.path(forResource: "alarm", ofType: ".mp3")
+            try alarmAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: alarmAudioPath!))
         }
         catch {
             print("Error playing alarm audio")
@@ -61,7 +61,7 @@ class HomeViewController: UIViewController {
         if (seconds == 0) {
             timer.invalidate()
             //implement sending text message and location to contacts and showing up a notification (like alarm) here to call 911... may have to re-enable cancel button or something
-            audioPlayer.play()
+            alarmAudioPlayer.play()
             return
         }
         
@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
         seconds = Int(sliderLabel.value)
         timeLabel.text = String(seconds) + " seconds"
         
-        audioPlayer.stop()
+        alarmAudioPlayer.stop()
         
         startLabel.tintColor = cancelLabel.tintColor
         cancelLabel.tintColor = UIColor.darkGray
