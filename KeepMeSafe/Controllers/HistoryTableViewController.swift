@@ -14,7 +14,6 @@ class HistoryTableViewController: UITableViewController {
     var audioFiles = [Audio]()
     
     var recordingSession: AVAudioSession!
-    var audioPlayer: AVAudioPlayer!
     
     var avPlayer: AVPlayer? //here
     var avPlayerItem: AVPlayerItem?

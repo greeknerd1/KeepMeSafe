@@ -155,6 +155,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         let path = getDocumentDirectory().appendingPathComponent(".mp3")
         
         do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker) //**** Just added This ******
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
             print("Playing this path: \(path)")
