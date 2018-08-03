@@ -19,7 +19,7 @@ struct AudioService {
         let uid = User.current.uid
         let timestamp = dateFormatter.string(from: Date())
         
-        return Storage.storage().reference().child("audio/\(uid)/\(timestamp).m4a")
+        return Storage.storage().reference().child("audio/\(uid)/\(timestamp).mp3")
     }
     
     //this is the function called when I want to upload a file to Storage, 
@@ -31,11 +31,11 @@ struct AudioService {
             }
 
             let audioURLString = downloadURL.absoluteString
-            create(audioURLString: audioURLString, date: date)
+            create(audioURLString: audioURLString, date: date) //stores downloadURL of audio in Firebase Database
         }
     }
     
-    //this creates a reference in the database, and is called in the above function **Dont call this function**
+    //this creates a reference in the Firebase database, and is called in the above function **Dont call this function**
     static func create(audioURLString: String, date: String) {
         let currentUser = User.current
         let audio = Audio(audioURLString: audioURLString, date: date)

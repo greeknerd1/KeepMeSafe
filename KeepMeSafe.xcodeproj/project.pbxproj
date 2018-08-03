@@ -35,6 +35,7 @@
 		13B557072113AAC00067FCFC /* AudioStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B557062113AAC00067FCFC /* AudioStorageService.swift */; };
 		13B557092113E8420067FCFC /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B557082113E8420067FCFC /* AudioService.swift */; };
 		13B5570B2113EA5D0067FCFC /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5570A2113EA5D0067FCFC /* Audio.swift */; };
+		13B5570D2114BE370067FCFC /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5570C2114BE370067FCFC /* AudioCell.swift */; };
 		6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		13B557062113AAC00067FCFC /* AudioStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorageService.swift; sourceTree = "<group>"; };
 		13B557082113E8420067FCFC /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		13B5570A2113EA5D0067FCFC /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		13B5570C2114BE370067FCFC /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepMeSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepMeSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 			children = (
 				1346BDAC210B979A00D7E6EA /* ContactCell.swift */,
 				1346BDB0210BD51800D7E6EA /* ScrollableContactCell.swift */,
+				13B5570C2114BE370067FCFC /* AudioCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				1346BDAD210B979A00D7E6EA /* ContactCell.swift in Sources */,
 				1346BDB1210BD51800D7E6EA /* ScrollableContactCell.swift in Sources */,
 				1346BDA9210B7FF300D7E6EA /* Contact.swift in Sources */,
+				13B5570D2114BE370067FCFC /* AudioCell.swift in Sources */,
 				1346BDB7211228B000D7E6EA /* Message.swift in Sources */,
 				1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */,
 				13B5570B2113EA5D0067FCFC /* Audio.swift in Sources */,

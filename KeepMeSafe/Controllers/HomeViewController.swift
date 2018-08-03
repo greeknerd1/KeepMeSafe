@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         
         //AUDIO RECORDING CODE
         if audioRecorder == nil { //checks if we have an active recorder
-            let fileName = getDocumentDirectory().appendingPathComponent(".m4a")
+            let fileName = getDocumentDirectory().appendingPathComponent(".mp3")
             
             let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
             do { //starts audio recording
@@ -141,7 +141,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             audioRecorder = nil
             
             //TESTING
-            let audioURL = getDocumentDirectory().appendingPathComponent(".m4a")
+            let audioURL = getDocumentDirectory().appendingPathComponent(".mp3")
             let dateFormatter = ISO8601DateFormatter()
             let timestamp = dateFormatter.string(from: Date())
             print("Timestamp: \(timestamp)")
@@ -152,11 +152,12 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func playPressed(_ sender: UIButton) {
         //AUDIO RECORDING CODE
         
-        let path = getDocumentDirectory().appendingPathComponent(".m4a")
+        let path = getDocumentDirectory().appendingPathComponent(".mp3")
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
+            print("Playing this path: \(path)")
         }
         catch {
             print("Error playing the recording!")
