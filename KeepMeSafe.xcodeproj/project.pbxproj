@@ -32,6 +32,9 @@
 		1375C3BB2107E81E00611E8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3BA2107E81E00611E8C /* Constants.swift */; };
 		1375C3BD2107E8A600611E8C /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3BC2107E8A600611E8C /* Storyboard+Utility.swift */; };
 		1375C3BF2108FE9A00611E8C /* EmergencyContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375C3BE2108FE9A00611E8C /* EmergencyContactTableViewController.swift */; };
+		13B557072113AAC00067FCFC /* AudioStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B557062113AAC00067FCFC /* AudioStorageService.swift */; };
+		13B557092113E8420067FCFC /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B557082113E8420067FCFC /* AudioService.swift */; };
+		13B5570B2113EA5D0067FCFC /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5570A2113EA5D0067FCFC /* Audio.swift */; };
 		6D144A139798F8CDBF9876E2 /* Pods_KeepMeSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		1375C3BA2107E81E00611E8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1375C3BC2107E8A600611E8C /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		1375C3BE2108FE9A00611E8C /* EmergencyContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactTableViewController.swift; sourceTree = "<group>"; };
+		13B557062113AAC00067FCFC /* AudioStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorageService.swift; sourceTree = "<group>"; };
+		13B557082113E8420067FCFC /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		13B5570A2113EA5D0067FCFC /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepMeSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5642284E91867E3AE4888DC /* Pods-KeepMeSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepMeSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepMeSafe/Pods-KeepMeSafe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +163,7 @@
 				1375C3B42107D9AD00611E8C /* User.swift */,
 				1346BDA8210B7FF300D7E6EA /* Contact.swift */,
 				1346BDB6211228B000D7E6EA /* Message.swift */,
+				13B5570A2113EA5D0067FCFC /* Audio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +184,8 @@
 				1346BDAA210B80C300D7E6EA /* ContactService.swift */,
 				1346BDB82112299B00D7E6EA /* MessageService.swift */,
 				1346BDA6210A7A3500D7E6EA /* TextMessageService.swift */,
+				13B557062113AAC00067FCFC /* AudioStorageService.swift */,
+				13B557082113E8420067FCFC /* AudioService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -234,6 +243,11 @@
 				TargetAttributes = {
 					1375C3882107A80300611E8C = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -341,11 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B557092113E8420067FCFC /* AudioService.swift in Sources */,
 				1346BDAD210B979A00D7E6EA /* ContactCell.swift in Sources */,
 				1346BDB1210BD51800D7E6EA /* ScrollableContactCell.swift in Sources */,
 				1346BDA9210B7FF300D7E6EA /* Contact.swift in Sources */,
 				1346BDB7211228B000D7E6EA /* Message.swift in Sources */,
 				1375C38D2107A80300611E8C /* AppDelegate.swift in Sources */,
+				13B5570B2113EA5D0067FCFC /* Audio.swift in Sources */,
 				1375C3A82107B24D00611E8C /* HomeViewController.swift in Sources */,
 				1375C3B52107D9AD00611E8C /* User.swift in Sources */,
 				1375C3AA2107B26000611E8C /* ConfigureViewController.swift in Sources */,
@@ -355,6 +371,7 @@
 				1375C3AC2107B27200611E8C /* HistoryTableViewController.swift in Sources */,
 				1375C3BF2108FE9A00611E8C /* EmergencyContactTableViewController.swift in Sources */,
 				1346BDB92112299B00D7E6EA /* MessageService.swift in Sources */,
+				13B557072113AAC00067FCFC /* AudioStorageService.swift in Sources */,
 				1346BDAB210B80C300D7E6EA /* ContactService.swift in Sources */,
 				1375C3B72107DE2D00611E8C /* CreateUsernameViewController.swift in Sources */,
 				1375C3BB2107E81E00611E8C /* Constants.swift in Sources */,

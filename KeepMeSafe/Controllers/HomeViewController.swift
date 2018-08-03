@@ -15,10 +15,16 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var sliderLabel: UISlider!
     @IBOutlet weak var startLabel: UIButton!
     @IBOutlet weak var cancelLabel: UIButton!
+    @IBOutlet weak var playLabel: UIButton!
     
     var seconds = 60
     var timer = Timer()
     var alarmAudioPlayer = AVAudioPlayer()
+    
+    //AUDIO RECORDING CODE
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
+    var audioPlayer: AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -34,6 +40,32 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         catch {
             print("Error playing alarm audio")
         }
+        
+        //AUDIO RECORDING CODE
+        recordingSession = AVAudioSession.sharedInstance()
+        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
+            if hasPermission {
+                print("access to mic GRANTED")
+            }
+            else {
+                print("access to mic NOT GRANTED")
+            }
+        }
+        
+    }
+    
+    //AUDIO RECORDING CODE
+    func getDocumentDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        return documentDirectory
+    }
+    
+    //AUDIO RECORDING CODE
+    func displayAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +86,21 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         sliderLabel.isEnabled = false
         startLabel.isEnabled = false
         cancelLabel.isEnabled = true
+        
+        //AUDIO RECORDING CODE
+        if audioRecorder == nil { //checks if we have an active recorder
+            let fileName = getDocumentDirectory().appendingPathComponent(".m4a")
+            
+            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+            do { //starts audio recording
+                audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
+                audioRecorder.delegate = self
+                audioRecorder.record()
+            }
+            catch {
+                displayAlert(title: "Uh Oh!", message: "Recording failed :(")
+            }
+        }
     }
     
     @objc func counter() {
@@ -87,6 +134,30 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         sliderLabel.isEnabled = true
         startLabel.isEnabled = true
         cancelLabel.isEnabled = false
+        
+        //AUDIO RECORDING CODE
+        if (audioRecorder != nil) { //Stopping audio recording
+            print("audio canceled")
+            audioRecorder.stop()
+            audioRecorder = nil
+        }
     }
+    
+    @IBAction func playPressed(_ sender: UIButton) {
+        //AUDIO RECORDING CODE
+        
+        let path = getDocumentDirectory().appendingPathComponent(".m4a")
+        
+        do {
+            print("it's goin here")
+            audioPlayer = try AVAudioPlayer(contentsOf: path)
+            audioPlayer.play()
+            print("audio is playing")
+        }
+        catch {
+            print("Error playing the recording!")
+        }
+    }
+    
 }
 
