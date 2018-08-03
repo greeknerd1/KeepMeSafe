@@ -184,8 +184,8 @@
 				1346BDAA210B80C300D7E6EA /* ContactService.swift */,
 				1346BDB82112299B00D7E6EA /* MessageService.swift */,
 				1346BDA6210A7A3500D7E6EA /* TextMessageService.swift */,
-				13B557062113AAC00067FCFC /* AudioStorageService.swift */,
 				13B557082113E8420067FCFC /* AudioService.swift */,
+				13B557062113AAC00067FCFC /* AudioStorageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

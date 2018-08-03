@@ -96,7 +96,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
                 audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
                 audioRecorder.delegate = self
                 audioRecorder.record()
-                print("recording")
             }
             catch {
                 displayAlert(title: "Uh Oh!", message: "Recording failed :(")
@@ -138,9 +137,15 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         
         //AUDIO RECORDING CODE
         if (audioRecorder != nil) { //Stopping audio recording
-            print("audio canceled")
             audioRecorder.stop()
             audioRecorder = nil
+            
+            //TESTING
+            let audioURL = getDocumentDirectory().appendingPathComponent(".m4a")
+            let dateFormatter = ISO8601DateFormatter()
+            let timestamp = dateFormatter.string(from: Date())
+            print("Timestamp: \(timestamp)")
+            AudioService.create(audioURL: audioURL, date: timestamp)
         }
     }
     
@@ -152,7 +157,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
-            print("audio is playing")
         }
         catch {
             print("Error playing the recording!")

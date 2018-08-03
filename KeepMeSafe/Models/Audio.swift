@@ -13,13 +13,28 @@ import FirebaseDatabase.FIRDataSnapshot
 class Audio {
     
     var key: String?
-    let imageURL: String
-    let imageHeight: CGFloat
-    let creationDate: Date
+    var audioURLString: String
+    var date: String
     
-    init(imageURL: String, imageHeight: CGFloat) {
-        self.imageURL = imageURL
-        self.imageHeight = imageHeight
-        self.creationDate = Date()
+    init(audioURLString: String, date: String) {
+        self.audioURLString = audioURLString
+        self.date = date
     }
+    
+    init?(snapshot: DataSnapshot) {
+        guard let dict = snapshot.value as? [String : Any],
+            let audioURLString = dict["audioURLString"] as? String,
+            let date = dict["date"] as? String
+            else { return nil }
+        
+        self.key = snapshot.key
+        self.audioURLString = audioURLString
+        self.date = date
+    }
+    
+    var dictValue: [String: Any] {
+        return ["audioURLString": audioURLString, "date": date]
+    }
+    
+    
 }
