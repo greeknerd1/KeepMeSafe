@@ -13,8 +13,17 @@ class HistoryTableViewController: UITableViewController {
     
     var audioFiles = [Audio]()
     
+    var recordingSession: AVAudioSession!
+    var audioPlayer: AVAudioPlayer!
+    
+    var avPlayer: AVPlayer? //here
+    var avPlayerItem: AVPlayerItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        recordingSession = AVAudioSession.sharedInstance()
+        
         AudioService.getAllAudios(for: User.current) { (audioFiles) in
             self.audioFiles = audioFiles
             self.tableView.reloadData()
@@ -49,53 +58,74 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AudioCell", for: indexPath) as! AudioCell
         
         let audio = audioFiles[indexPath.row]
-        let audioURLString = audio.audioURLString
+        let audioDownloadURLString = audio.audioURLString
         
-        if let audioUrl = URL(string: audioURLString) {
+        
+        
+        if let audioDownloadURL = URL(string: audioDownloadURLString) {
 
-            // then lets create your document folder url
-            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-            // lets create your destination file url
-            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
-            // to check if it exists before downloading it
-            if FileManager.default.fileExists(atPath: destinationUrl.path) {
-                print("The file already exists at path")
-                do {
-                    var audioPlayer: AVAudioPlayer!
-                    audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
-                    guard let player = audioPlayer else { return }
-                    player.prepareToPlay()
-                    print("PLAYING SELECTED URL: \(destinationUrl)")
-                    player.play()
-                } catch let error {
-                    print("Error playing audio: \(error.localizedDescription)")
-                }
-                // if the file doesn't exist
-            } else {
-                // you can use NSURLSession.sharedSession to download the data asynchronously
-                URLSession.shared.downloadTask(with: audioUrl, completionHandler: { (location, response, error) -> Void in
-                    guard let location = location, error == nil else { return }
-                    do {
-                        // after downloading your file you need to move it to your destination url
-                        try FileManager.default.moveItem(at: location, to: destinationUrl)
-                        print("File moved to documents folder")
-                    } catch let error as NSError {
-                        print(error.localizedDescription)
-                    }
-                    do {
-                        var audioPlayer: AVAudioPlayer!
-                        audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
-                        guard let player = audioPlayer else { return }
-                        player.prepareToPlay()
-                        print("PLAYING SELECTED URL: \(destinationUrl)")
-                        player.play()
-                    } catch let error {
-                        print("Error playing audio: \(error.localizedDescription)")
-                    }
-                }).resume()
-            }
+//            let protectionSpace = URLProtectionSpace.init(host: host,
+//                                                          port: port,
+//                                                          protocol: "http",
+//                                                          realm: nil,
+//                                                          authenticationMethod: nil)
+//
+//            var credential: URLCredential? = URLCredentialStorage.shared.defaultCredential(for: protectionSpace)
+//
+//            let userCredential = URLCredential(user: user,
+//                                               password: password,
+//                                               persistence: .permanent)
+//
+//            URLCredentialStorage.shared.setDefaultCredential(userCredential, for: protectionSpace)
+            
+            avPlayerItem = AVPlayerItem.init(url: audioDownloadURL)
+            avPlayer = AVPlayer.init(playerItem: avPlayerItem)
+            avPlayer?.volume = 1.0
+            avPlayer?.play()
         }
+        
+//        if let audioUrl = URL(string: audioDownloadURLString) {
+//
+//            // then lets create your document folder url
+//            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//
+//            // lets create your destination file url
+//            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
+//            // to check if it exists before downloading it
+//            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+//                print("The file already exists at path")
+//                do {
+//                    audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
+//                    audioPlayer.prepareToPlay()
+//                    print("PLAYING SELECTED URL: \(destinationUrl)")
+//                    audioPlayer.play()
+//                } catch let error {
+//                    print("Error playing audio: \(error.localizedDescription)")
+//                }
+//                // if the file doesn't exist
+//            }
+//            else {
+//                // you can use NSURLSession.sharedSession to download the data asynchronously
+//                URLSession.shared.downloadTask(with: audioUrl, completionHandler: { (location, response, error) -> Void in
+//                    guard let location = location, error == nil else { return }
+//                    do {
+//                        // after downloading your file you need to move it to your destination url
+//                        try FileManager.default.moveItem(at: location, to: destinationUrl)
+//                        print("File moved to documents folder")
+//                    } catch let error as NSError {
+//                        print(error.localizedDescription)
+//                    }
+//                    do {
+//                        self.audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
+//                        self.audioPlayer.prepareToPlay()
+//                        print("PLAYING SELECTED URL: \(destinationUrl)")
+//                        self.audioPlayer.play()
+//                    } catch let error {
+//                        print("Error playing audio: \(error.localizedDescription)")
+//                    }
+//                }).resume()
+//            }
+//        }
     }
 }
 
