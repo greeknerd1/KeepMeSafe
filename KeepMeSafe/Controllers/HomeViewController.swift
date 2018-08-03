@@ -96,6 +96,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
                 audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
                 audioRecorder.delegate = self
                 audioRecorder.record()
+                print("recording")
             }
             catch {
                 displayAlert(title: "Uh Oh!", message: "Recording failed :(")
@@ -149,7 +150,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         let path = getDocumentDirectory().appendingPathComponent(".m4a")
         
         do {
-            print("it's goin here")
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
             print("audio is playing")
