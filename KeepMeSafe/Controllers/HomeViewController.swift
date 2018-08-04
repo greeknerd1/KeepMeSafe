@@ -167,10 +167,16 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
-            print("Playing this path: \(path)")
         }
         catch {
             print("Error playing the recording!")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        if (audioPlayer != nil) {
+            audioPlayer.stop()
         }
     }
     

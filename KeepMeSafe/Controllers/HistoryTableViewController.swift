@@ -45,7 +45,8 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        print("view will disappear called")
+        
+        avPlayer?.pause()
     }
     
     override func didReceiveMemoryWarning() {
