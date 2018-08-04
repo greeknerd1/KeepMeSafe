@@ -69,6 +69,7 @@
 		1375C3BA2107E81E00611E8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1375C3BC2107E8A600611E8C /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		1375C3BE2108FE9A00611E8C /* EmergencyContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactTableViewController.swift; sourceTree = "<group>"; };
+		138CDA8F21162D300006BACE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		13B557062113AAC00067FCFC /* AudioStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorageService.swift; sourceTree = "<group>"; };
 		13B557082113E8420067FCFC /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		13B5570A2113EA5D0067FCFC /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		297A8C42FF5E69908BD0F7E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				138CDA8F21162D300006BACE /* AudioToolbox.framework */,
 				1346BDB4211107BA00D7E6EA /* CoreLocation.framework */,
 				20C49AEB7C89919F0D6B0E4C /* Pods_KeepMeSafe.framework */,
 			);

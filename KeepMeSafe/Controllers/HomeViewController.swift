@@ -122,12 +122,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             return
         }
         
-        if(seconds == 10 || seconds == 9 || seconds == 8 || seconds == 7 || seconds == 6 || seconds == 5 || seconds == 4 || seconds == 3 || seconds == 2 || seconds == 1) {
-            //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); //not running on the second timer loop...?
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) //** NEW ONE **
-            print("its goin here")
-        }
-        
         seconds -= 1
         timeLabel.text = String(seconds) + " seconds"
         
