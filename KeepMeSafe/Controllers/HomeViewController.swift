@@ -33,16 +33,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         cancelLabel.isEnabled = false
         cancelLabel.tintColor = UIColor.darkGray
         
-        do {
-            let alarmAudioPath = Bundle.main.path(forResource: "alarm", ofType: ".mp3")
-            try alarmAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: alarmAudioPath!))
-        }
-        catch {
-            print("Error playing alarm audio")
-        }
-        
         //AUDIO RECORDING CODE
         recordingSession = AVAudioSession.sharedInstance()
+        
         AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
             if hasPermission {
                 print("access to mic GRANTED")
@@ -52,6 +45,22 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             }
         }
         
+        do {
+            let alarmAudioPath = Bundle.main.path(forResource: "alarm", ofType: ".mp3")
+            try alarmAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: alarmAudioPath!))
+        }
+        catch {
+            print("Error playing alarm audio")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayAndRecord in HomeViewController.viewWillAppear() failed.")
+        }
     }
     
     //AUDIO RECORDING CODE
@@ -113,7 +122,8 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
         if(seconds == 10 || seconds == 9 || seconds == 8 || seconds == 7 || seconds == 6 || seconds == 5 || seconds == 4 || seconds == 3 || seconds == 2 || seconds == 1) {
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); //not running on the second timer loop...?
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) //** NEW ONE **
         }
         
         seconds -= 1
@@ -155,7 +165,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         let path = getDocumentDirectory().appendingPathComponent(".mp3")
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker) //**** Just added This ******
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
             print("Playing this path: \(path)")

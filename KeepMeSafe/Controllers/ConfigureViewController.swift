@@ -80,6 +80,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         ContactService.contacts(for: User.current) { (contacts) in
             self.contacts = contacts
             self.scrollableTableView.reloadData()

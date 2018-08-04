@@ -30,7 +30,13 @@ class HistoryTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayback)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayback in HistoryViewController.viewWillAppear() failed.")
+        }
         AudioService.getAllAudios(for: User.current) { (audioFiles) in
             self.audioFiles = audioFiles
             self.tableView.reloadData()
