@@ -50,10 +50,9 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
             }
             else {
                 if let place = placemark?[0] {
-                    //place.postalAddress! <-- this contains all the relevant location information
-                    var newLocationMessage = ""
+                    var newLocationMessage = "I'm at: "
                     if let name = place.name {
-                       newLocationMessage = name
+                       newLocationMessage.append(name)
                     }
                     if let subLocality = place.subLocality {
                         newLocationMessage.append(", \(subLocality)")
@@ -89,20 +88,27 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func editMessageButtonPressed(_ sender: UIButton) {
+        
         let addAlert = UIAlertController(title: "Emergency Message", message: "Edit your message", preferredStyle: .alert)
+        
         addAlert.addTextField { (textField: UITextField) in
             textField.placeholder  = "\(self.messages.first?.mainMessage ?? "mainMessage") \(self.messages.first?.locationMessage ?? "locationMessage")"
         }
+        
+        addAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
         addAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action:UIAlertAction) in
             guard let message = addAlert.textFields?.first?.text else { return }
             if message != "" {
-                self.updateMessageField()
+                MessageService.messages(for: User.current) { (messages) in
+                    self.messages = messages
+                }
                 if self.messages.isEmpty { return }
                 MessageService.edit(message: (self.messages.first)!, mainMessage: message, locationMessage: (self.messages.first?.locationMessage)!)
                 self.updateMessageField()
             }
         }))
-        addAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
         self.present(addAlert, animated: true, completion: nil)
         
     }

@@ -40,7 +40,7 @@ struct MessageService {
             ref.setValue(["mainMessage": mainMessage, "locationMessage": locationMessage])
         }
         else {
-            print("Error with removing contact in MessageService")
+            print("Error with removing message in MessageService")
         }
     }
 }
