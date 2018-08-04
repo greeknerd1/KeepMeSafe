@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            //try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-             //try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker) //**** Just added This ******
         } catch {
             print("Setting category to AVAudioSessionCategoryPlayback in AppDelegate failed.")
         }
