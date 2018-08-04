@@ -22,6 +22,11 @@ class HistoryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayAndRecord in HistoryController.ViewDidLoad() failed.")
+        }
         
         AudioService.getAllAudios(for: User.current) { (audioFiles) in
             self.audioFiles = audioFiles
@@ -32,11 +37,6 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayback)
-        } catch {
-            print("Setting category to AVAudioSessionCategoryPlayback in HistoryViewController.viewWillAppear() failed.")
-        }
         AudioService.getAllAudios(for: User.current) { (audioFiles) in
             self.audioFiles = audioFiles
             self.tableView.reloadData()
