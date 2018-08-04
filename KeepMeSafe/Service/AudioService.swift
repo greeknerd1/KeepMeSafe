@@ -35,7 +35,7 @@ struct AudioService {
         }
     }
     
-    //this creates a reference in the Firebase database, and is called in the above function **Dont call this function**
+    //this creates a reference in the Firebase database, and is called in the above function **DONT CALL THIS FUNCTION**
     static func create(audioURLString: String, date: String) {
         let currentUser = User.current
         let audio = Audio(audioURLString: audioURLString, date: date)
@@ -68,18 +68,4 @@ struct AudioService {
             print("Error with removing contact in AudioService")
         }
     }
-    
-    //template in Makestagram
-    //    static func create(for image: UIImage) {
-    //        let imageRef = StorageReference.newPostImageReference()
-    //        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-    //            guard let downloadURL = downloadURL else {
-    //                return
-    //            }
-    //
-    //            let urlString = downloadURL.absoluteString
-    //            let aspectHeight = image.aspectHeight
-    //            create(forURLString: urlString, aspectHeight: aspectHeight)
-    //        }
-    //    }
 }

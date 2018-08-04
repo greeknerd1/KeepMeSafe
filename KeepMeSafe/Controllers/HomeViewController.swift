@@ -64,6 +64,13 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewWillAppear(true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        if (audioPlayer != nil) {
+            audioPlayer.stop()
+        }
+    }
+    
     //AUDIO RECORDING CODE
     func getDocumentDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -97,6 +104,10 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         startLabel.isEnabled = false
         cancelLabel.isEnabled = true
         
+        if (audioPlayer != nil) { //if play recording is pressed, stops current recording that's playing
+            audioPlayer.stop()
+        }
+        
         //AUDIO RECORDING CODE
         if audioRecorder == nil { //checks if we have an active recorder
             let fileName = getDocumentDirectory().appendingPathComponent(".mp3")
@@ -119,6 +130,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             timer.invalidate()
             //implement sending text message and location to contacts and showing up a notification (like alarm) here to call 911... may have to re-enable cancel button or something
             alarmAudioPlayer.play()
+            displayAlert(title: "Emergency Message Sent!", message: "Audio Recording Saved!")
             return
         }
         
@@ -166,13 +178,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         }
         catch {
             print("Error playing the recording!")
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        if (audioPlayer != nil) {
-            audioPlayer.stop()
         }
     }
     
