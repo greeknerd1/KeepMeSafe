@@ -65,7 +65,7 @@ class HistoryTableViewController: UITableViewController {
         let audioDate = audio.date
         
         cell.URLStringLabel.text = "Click to play recording!"
-        cell.dateLabel.text = formatDate(audioDate)
+        cell.dateLabel.text = audioDate
         
         return cell
     }

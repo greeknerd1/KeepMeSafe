@@ -160,9 +160,22 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             
             //TESTING
             let audioURL = getDocumentDirectory().appendingPathComponent(".mp3")
-            let dateFormatter = ISO8601DateFormatter()
-            let timestamp = dateFormatter.string(from: Date())
-            print("Timestamp: \(timestamp)")
+            
+            //*******NEW CODE*******
+            // get the current date and time
+            let currentDateTime = Date()
+            
+            // initialize the date formatter and set the style
+            let formatter = DateFormatter()
+            formatter.timeStyle = .medium
+            formatter.dateStyle = .long
+            
+            // get the date time String from the date object
+            let timestamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+            
+            
+            
+            
             AudioService.create(audioURL: audioURL, date: timestamp)
         }
     }
