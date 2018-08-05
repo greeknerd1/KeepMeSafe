@@ -173,16 +173,17 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             // get the date time String from the date object
             let timestamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
             
+            var duration = "0:00"
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
-                print(audioPlayer.duration)
+                duration = String(Double(round(audioPlayer.duration*100)/100))
             }
             catch {
                 print("Error finding the time of recorder")
             }
             
             
-            AudioService.create(audioURL: audioURL, date: timestamp)
+            AudioService.create(audioURL: audioURL, date: timestamp, duration: duration)
         }
     }
     

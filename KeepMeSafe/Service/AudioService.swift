@@ -20,7 +20,7 @@ struct AudioService {
     }
     
     //this is the function called when I want to upload a file to Storage, 
-    static func create(audioURL: URL, date: String) {
+    static func create(audioURL: URL, date: String, duration: String) {
         let audioRef = newAudioReference(date)
         AudioStorageService.uploadAudio(audioFileName: audioURL, at: audioRef) { (downloadURL) in
             guard let downloadURL = downloadURL else {
@@ -28,14 +28,14 @@ struct AudioService {
             }
 
             let audioURLString = downloadURL.absoluteString
-            create(audioURLString: audioURLString, date: date) //stores downloadURL of audio in Firebase Database
+            create(audioURLString: audioURLString, date: date, duration: duration) //stores downloadURL of audio in Firebase Database
         }
     }
     
     //this creates a reference in the Firebase database, and is called in the above function **DONT CALL THIS FUNCTION**
-    static func create(audioURLString: String, date: String) {
+    static func create(audioURLString: String, date: String, duration: String) {
         let currentUser = User.current
-        let audio = Audio(audioURLString: audioURLString, date: date)
+        let audio = Audio(audioURLString: audioURLString, date: date, duration: duration)
         let dict = audio.dictValue
         let audioRef = Database.database().reference().child("audio").child(currentUser.uid).childByAutoId()
         audioRef.updateChildValues(dict)
