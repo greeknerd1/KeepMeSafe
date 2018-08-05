@@ -15,6 +15,8 @@ class AudioCell: UITableViewCell {
     
     @IBOutlet weak var URLStringLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

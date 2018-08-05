@@ -40,10 +40,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uIv-Pr-66a">
+                                            <rect key="frame" x="296" y="24" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="URLStringLabel" destination="stJ-I3-YoL" id="OoX-e8-VsM"/>
+                                    <outlet property="activityIndicator" destination="uIv-Pr-66a" id="LQW-Ga-jUU"/>
                                     <outlet property="dateLabel" destination="Zcb-38-sJa" id="HZx-9a-gtN"/>
                                 </connections>
                             </tableViewCell>

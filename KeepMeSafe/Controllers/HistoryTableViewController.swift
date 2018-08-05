@@ -80,6 +80,15 @@ class HistoryTableViewController: UITableViewController {
     //plays audio when cell selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true) //deselects row
+        
+        let currentCell = tableView.cellForRow(at: indexPath) as! AudioCell
+        currentCell.activityIndicator.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
+            currentCell.activityIndicator.stopAnimating()
+        }
+        
         let audio = audioFiles[indexPath.row]
         let audioDownloadURLString = audio.audioURLString
         
