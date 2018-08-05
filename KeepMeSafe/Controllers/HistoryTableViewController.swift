@@ -54,6 +54,12 @@ class HistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
+        AudioService.getAllAudios(for: User.current) { (audioFiles) in
+            self.audioFiles = audioFiles
+            self.tableView.reloadData()
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return audioFiles.count
     }

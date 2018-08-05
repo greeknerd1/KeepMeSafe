@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--History Table View Controller-->
+        <!--My Recordings-->
         <scene sceneID="ytX-Kq-Hz0">
             <objects>
                 <tableViewController id="Snn-VS-kQH" customClass="HistoryTableViewController" customModule="KeepMeSafe" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,14 +29,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-38-sJa">
                                             <rect key="frame" x="16" y="0.0" width="343" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AudioURLString" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stJ-I3-YoL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stJ-I3-YoL">
                                             <rect key="frame" x="16" y="38" width="343" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -53,11 +53,17 @@
                             <outlet property="delegate" destination="Snn-VS-kQH" id="ryV-Qi-uLf"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" tag="2" systemItem="history" id="6Vb-0P-scw"/>
+                    <navigationItem key="navigationItem" title="My Recordings" id="9Q7-ci-r3L">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="R31-MZ-2S9">
+                            <connections>
+                                <action selector="refreshPressed:" destination="Snn-VS-kQH" id="BtS-bg-EZV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGJ-WR-Rxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.40000000000001" y="937.78110944527748"/>
+            <point key="canvasLocation" x="1053.5999999999999" y="937.78110944527748"/>
         </scene>
         <!--Home-->
         <scene sceneID="sGN-ca-ZOE">
@@ -147,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxD-It-Rwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.5999999999999" y="575.26236881559225"/>
+            <point key="canvasLocation" x="3320.8000000000002" y="575.26236881559225"/>
         </scene>
         <!--Home Explained-->
         <scene sceneID="o2k-2X-VQE">
@@ -183,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUC-Y5-8lq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3112.8000000000002" y="575.26236881559225"/>
+            <point key="canvasLocation" x="4052" y="575.26236881559225"/>
         </scene>
         <!--Configure-->
         <scene sceneID="W1P-Ba-c8G">
@@ -446,7 +452,7 @@
                     <connections>
                         <segue destination="cLI-YN-HxS" kind="relationship" relationship="viewControllers" id="rA2-VE-fCP"/>
                         <segue destination="teI-fD-m2N" kind="relationship" relationship="viewControllers" id="dhK-9M-osy"/>
-                        <segue destination="Snn-VS-kQH" kind="relationship" relationship="viewControllers" id="xRJ-9d-ZnT"/>
+                        <segue destination="dhV-YQ-ivj" kind="relationship" relationship="viewControllers" id="xRJ-9d-ZnT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUY-AY-S0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,7 +480,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwW-Os-tt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1440.8" y="574.36281859070471"/>
+            <point key="canvasLocation" x="2380" y="574.36281859070471"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RYW-4z-yn4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dhV-YQ-ivj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="history" id="6Vb-0P-scw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mWv-pz-foo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Snn-VS-kQH" kind="relationship" relationship="rootViewController" id="tO9-6c-keR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofb-fd-PrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114.40000000000001" y="937.78110944527748"/>
         </scene>
     </scenes>
     <resources>
