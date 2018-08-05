@@ -70,13 +70,6 @@ class HistoryTableViewController: UITableViewController {
         return cell
     }
     
-    func formatDate(_ timestamp: String) -> String {
-        let dateAndTime = timestamp.split(separator: "T")
-        let date = dateAndTime[0]
-        var time = dateAndTime[1]
-        time.removeLast()
-        return "Created on: \(date) at \(time)"
-    }
     //plays audio when cell selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -94,12 +87,12 @@ class HistoryTableViewController: UITableViewController {
     //delete function
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            let contactToDelete = contacts[indexPath.row]
-//            ContactService.remove(contact: contactToDelete)
-//            ContactService.contacts(for: User.current) { (contacts) in
-//                self.contacts = contacts
-//                self.tableView.reloadData()
-//            }
+            let audioToDelete = audioFiles[indexPath.row]
+            AudioService.removeAudio(audio: audioToDelete)
+            AudioService.getAllAudios(for: User.current) { (audioFiles) in
+                self.audioFiles = audioFiles
+                self.tableView.reloadData()
+            }
         }
     }
 }

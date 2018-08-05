@@ -173,9 +173,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             // get the date time String from the date object
             let timestamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
             
-            
-            
-            
             AudioService.create(audioURL: audioURL, date: timestamp)
         }
     }

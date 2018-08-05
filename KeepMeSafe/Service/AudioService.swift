@@ -13,18 +13,15 @@ import UIKit
 
 struct AudioService {
     
-    static let dateFormatter = ISO8601DateFormatter()
-    
-    static func newAudioReference() -> StorageReference {
+    static func newAudioReference(_ date: String) -> StorageReference {
         let uid = User.current.uid
-        let timestamp = dateFormatter.string(from: Date())
         
-        return Storage.storage().reference().child("audio/\(uid)/\(timestamp).mp3")
+        return Storage.storage().reference().child("audio/\(uid)/\(date).mp3")
     }
     
     //this is the function called when I want to upload a file to Storage, 
     static func create(audioURL: URL, date: String) {
-        let audioRef = newAudioReference()
+        let audioRef = newAudioReference(date)
         AudioStorageService.uploadAudio(audioFileName: audioURL, at: audioRef) { (downloadURL) in
             guard let downloadURL = downloadURL else {
                 return
@@ -60,12 +57,20 @@ struct AudioService {
     //change so it removes the reference in Firebase Storage too
     static func removeAudio(audio: Audio) {
         let currentUser = User.current
-        let ref = Database.database().reference().child("audio").child(currentUser.uid).child(audio.key!)
-        if ref != nil{
-            ref.removeValue()
+        
+        let storageRef = Storage.storage().reference().child("audio/\(currentUser.uid)/\(audio.date).mp3")
+        storageRef.delete { (error) in
+            if (error != nil) {
+                print("Error deleting audiofile in Firebase Storage at: \(storageRef.name)")
+            }
+        }
+        
+        let databaseRef = Database.database().reference().child("audio").child(currentUser.uid).child(audio.key!)
+        if databaseRef != nil{
+            databaseRef.removeValue()
         }
         else {
-            print("Error with removing contact in AudioService")
+            print("Error with deleting audiofile in Firebase Database in AudioService")
         }
     }
 }
