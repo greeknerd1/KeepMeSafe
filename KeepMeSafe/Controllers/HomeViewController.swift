@@ -82,7 +82,11 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     //AUDIO RECORDING CODE
     func displayAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action: UIAlertAction) in
+            if (self.alarmAudioPlayer.isPlaying) {
+                self.alarmAudioPlayer.stop()
+            }
+        }))
         present(alert, animated: true, completion: nil)
     }
     
@@ -129,10 +133,52 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         
         if (seconds == 0) {
             timer.invalidate()
-            //implement sending text message and location to contacts and showing up a notification (like alarm) here to call 911... may have to re-enable cancel button or something
+            seconds = Int(sliderLabel.value)
+            timeLabel.text = String(seconds) + " seconds"
+            
             if (switchLabel.isOn) {
                 alarmAudioPlayer.play()
             }
+            
+            startLabel.tintColor = cancelLabel.tintColor
+            cancelLabel.tintColor = UIColor.darkGray
+            
+            //AUDIO RECORDING CODE
+            if (audioRecorder != nil) { //Stopping audio recording
+                audioRecorder.stop()
+                audioRecorder = nil
+                
+                //TESTING
+                let audioURL = getDocumentDirectory().appendingPathComponent(".mp3")
+                
+                //*******NEW CODE*******
+                // get the current date and time
+                let currentDateTime = Date()
+                
+                // initialize the date formatter and set the style
+                let formatter = DateFormatter()
+                formatter.timeStyle = .medium
+                formatter.dateStyle = .long
+                
+                // get the date time String from the date object
+                let timestamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+                
+                var duration = "0:00"
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+                    duration = String(Double(round(audioPlayer.duration*100)/100))
+                }
+                catch {
+                    print("Error finding the time of recorder")
+                }
+                AudioService.create(audioURL: audioURL, date: timestamp, duration: duration)
+            }
+            
+            sliderLabel.isEnabled = true
+            startLabel.isEnabled = true
+            cancelLabel.isEnabled = false
+            
+            //implement sending text message to contacts***********************
             displayAlert(title: "Emergency Message Sent!", message: "Audio Recording Saved!")
             return
         }
@@ -147,7 +193,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         seconds = Int(sliderLabel.value)
         timeLabel.text = String(seconds) + " seconds"
         
-        alarmAudioPlayer.stop()
+        if (alarmAudioPlayer.isPlaying) {
+            alarmAudioPlayer.stop()
+        }
         
         startLabel.tintColor = cancelLabel.tintColor
         cancelLabel.tintColor = UIColor.darkGray
@@ -184,8 +232,6 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             catch {
                 print("Error finding the time of recorder")
             }
-            
-            
             AudioService.create(audioURL: audioURL, date: timestamp, duration: duration)
         }
     }
