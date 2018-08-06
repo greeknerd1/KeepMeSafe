@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class HomeViewController: UIViewController, AVAudioRecorderDelegate {
+class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sliderLabel: UISlider!
@@ -73,6 +73,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewWillDisappear(true)
         if (audioPlayer != nil) {
             audioPlayer.stop()
+            playLabel.setTitle("Play Recording", for: .normal)
         }
     }
     
@@ -116,8 +117,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         startLabel.isEnabled = false
         cancelLabel.isEnabled = true
         
-        if (audioPlayer != nil) { //if play recording is pressed, stops current recording that's playing
+        if (audioPlayer != nil && audioPlayer.isPlaying) { //if play recording is pressed, stops current recording that's playing
             audioPlayer.stop()
+            playLabel.setTitle("Play recording", for: .normal)
         }
         
         //AUDIO RECORDING CODE
@@ -252,15 +254,27 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func playPressed(_ sender: UIButton) {
         //AUDIO RECORDING CODE
         
-        let path = getDocumentDirectory().appendingPathComponent(".mp3")
+        if (audioPlayer != nil && audioPlayer.isPlaying) { //stops recording and changes from stop to play
+            audioPlayer.stop()
+            playLabel.setTitle("Play Recording", for: .normal)
+        }
+        else if (audioRecorder == nil) { //plays recording and changes from play to stop
+            let path = getDocumentDirectory().appendingPathComponent(".mp3")
         
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: path)
-            audioPlayer.play()
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: path)
+                audioPlayer.play()
+                audioPlayer.delegate = self
+                playLabel.setTitle("Stop Recording", for: .normal)
+            }
+            catch {
+                print("Error playing the recording!")
+            }
         }
-        catch {
-            print("Error playing the recording!")
-        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playLabel.setTitle("Play recording", for: .normal)
     }
     
 }
