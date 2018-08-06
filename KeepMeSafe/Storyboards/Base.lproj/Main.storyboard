@@ -122,6 +122,13 @@
                                             <action selector="sliderChanged:" destination="ZWn-4Q-H9u" eventType="valueChanged" id="fbz-HT-Qy1"/>
                                         </connections>
                                     </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaQ-UH-2vw">
+                                        <rect key="frame" x="53" y="263" width="270" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -170,6 +177,7 @@
                     <connections>
                         <outlet property="cancelLabel" destination="VyG-QR-Oht" id="2Zm-py-Vg0"/>
                         <outlet property="playLabel" destination="dKV-zu-J1H" id="bfM-uC-W6W"/>
+                        <outlet property="recordingLabel" destination="KaQ-UH-2vw" id="jaM-9Z-w71"/>
                         <outlet property="sliderLabel" destination="JFi-lG-A82" id="dqT-VI-MCD"/>
                         <outlet property="startLabel" destination="exq-gM-7Br" id="D3T-tE-17K"/>
                         <outlet property="switchLabel" destination="s0i-QY-0wB" id="fXD-co-Mbo"/>

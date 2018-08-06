@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var cancelLabel: UIButton!
     @IBOutlet weak var playLabel: UIButton!
     @IBOutlet weak var switchLabel: UISwitch!
+    @IBOutlet weak var recordingLabel: UILabel!
     
     var seconds = 60
     var timer = Timer()
@@ -33,6 +34,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         cancelLabel.isEnabled = false
         cancelLabel.tintColor = UIColor.darkGray
+        
+        recordingLabel.textColor = UIColor.red
+        recordingLabel.text = "Not Recording"
         
         //AUDIO RECORDING CODE
         recordingSession = AVAudioSession.sharedInstance()
@@ -102,6 +106,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func startPressed(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HomeViewController.counter), userInfo: nil, repeats: true)
         
+        recordingLabel.textColor = UIColor.green
+        recordingLabel.text = "Recording"
+        
         cancelLabel.tintColor = startLabel.tintColor
         startLabel.tintColor = UIColor.darkGray
         
@@ -135,6 +142,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
             timer.invalidate()
             seconds = Int(sliderLabel.value)
             timeLabel.text = String(seconds) + " seconds"
+            
+            recordingLabel.textColor = UIColor.red
+            recordingLabel.text = "Not Recording"
             
             if (switchLabel.isOn) {
                 alarmAudioPlayer.play()
@@ -192,6 +202,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         timer.invalidate()
         seconds = Int(sliderLabel.value)
         timeLabel.text = String(seconds) + " seconds"
+        
+        recordingLabel.textColor = UIColor.red
+        recordingLabel.text = "Not Recording"
         
         if (alarmAudioPlayer.isPlaying) {
             alarmAudioPlayer.stop()
