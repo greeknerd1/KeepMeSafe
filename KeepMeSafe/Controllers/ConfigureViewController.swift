@@ -34,7 +34,7 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
         //Location code
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
+        manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
         
         updateMessageField()

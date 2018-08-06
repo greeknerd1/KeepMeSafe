@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your location to maintain an up-to-date emergency message!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to maintain an up-to-date emergency message!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to maintain an up-to-date emergency message!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,8 +28,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location is needed so your emergency contacts can receive it when you're in danger!</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Your mic is needed to record audio once you hit the start button!</string>
 	<key>UILaunchStoryboardName</key>
