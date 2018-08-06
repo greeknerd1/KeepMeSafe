@@ -29,7 +29,19 @@ class EmergencyContactTableViewController: UITableViewController, CNContactPicke
         // Dispose of any resources that can be recreated.
     }
     
+    func displayAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        if (contacts.count >= 5) {
+            displayAlert(title: "Max number of contacts reached!", message: "You can only have 5 contacts at a time. To delete a contact, swipe left.")
+            return
+        }
+        
         let contactPicker = CNContactPickerViewController()
         contactPicker.delegate = self
         contactPicker.displayedPropertyKeys =
