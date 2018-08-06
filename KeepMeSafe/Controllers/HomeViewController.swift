@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var startLabel: UIButton!
     @IBOutlet weak var cancelLabel: UIButton!
     @IBOutlet weak var playLabel: UIButton!
+    @IBOutlet weak var switchLabel: UISwitch!
     
     var seconds = 60
     var timer = Timer()
@@ -129,7 +130,9 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate {
         if (seconds == 0) {
             timer.invalidate()
             //implement sending text message and location to contacts and showing up a notification (like alarm) here to call 911... may have to re-enable cancel button or something
-            alarmAudioPlayer.play()
+            if (switchLabel.isOn) {
+                alarmAudioPlayer.play()
+            }
             displayAlert(title: "Emergency Message Sent!", message: "Audio Recording Saved!")
             return
         }
