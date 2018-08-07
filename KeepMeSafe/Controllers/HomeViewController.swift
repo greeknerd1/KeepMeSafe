@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     
+    var contacts = [Contact]()
+    var messages = [Message]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,12 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        ContactService.contacts(for: User.current) { (contacts) in
+            self.contacts = contacts
+        }
+        MessageService.messages(for: User.current) { (messages) in
+            self.messages = messages
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -190,6 +198,12 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             startLabel.isEnabled = true
             cancelLabel.isEnabled = false
             
+            MessageService.messages(for: User.current) { (messages) in
+                self.messages = messages
+            }
+            for contact in contacts {
+                TextMessageService.sendTextMessage(phoneNumber: contact.number, message: "Keep Me Safe App: \(messages.first?.mainMessage ?? "Help! I may be in danger!") \(messages.first?.locationMessage ?? "No network connection to send my current location :(")")
+            }
             //implement sending text message to contacts***********************
             displayAlert(title: "Emergency Message Sent!", message: "Audio Recording Saved!")
             return

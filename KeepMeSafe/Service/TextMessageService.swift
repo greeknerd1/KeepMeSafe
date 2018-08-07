@@ -14,14 +14,12 @@ class TextMessageService {
     //format: "+16504507598"
     static func sendTextMessage(phoneNumber: String?, message: String?) {
         
-        let DEFAULTNUMBER_FORTESTING = "+16504507598"
-        
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
         let parameters: Parameters = [
-            "To": DEFAULTNUMBER_FORTESTING ?? "", //replace with phoneNumber
+            "To": phoneNumber ?? "",
             "Body": message ?? ""
         ]
         
