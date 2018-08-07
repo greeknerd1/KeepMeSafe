@@ -20,12 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="ChV-re-mFZ">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="ChV-re-mFZ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a recording to play it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwj-CV-pEM">
-                                    <rect key="frame" x="99.5" y="14" width="176" height="16"/>
+                                    <rect key="frame" x="99.5" y="63.5" width="176" height="16"/>
                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -374,72 +374,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-pG-5d1">
-                                <rect key="frame" x="-0.5" y="64" width="375.5" height="297.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-pG-5d1">
+                                <rect key="frame" x="-0.5" y="64" width="375.5" height="277"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Emergency Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azo-96-76J">
-                                        <rect key="frame" x="9.5" y="10" width="222" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
-                                        <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-Ts-XMT">
-                                        <rect key="frame" x="265" y="136" width="76" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Edit Contacts">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="7NW-HN-PKK" kind="show" id="ham-Xi-j3S"/>
-                                        </connections>
-                                    </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-yW-fO5">
-                                        <rect key="frame" x="9.5" y="44" width="238.5" height="243.5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScrollableContactCell" id="teu-wO-yRW" customClass="ScrollableContactCell" customModule="KeepMeSafe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="238.5" height="35"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="teu-wO-yRW" id="kxi-N8-SCM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="238.5" height="34.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go add a contact!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-du-Hlb">
-                                                            <rect key="frame" x="14" y="-2" width="155.5" height="39"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="nameLabel" destination="zwd-du-Hlb" id="p36-c1-bfZ"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7vn-2K-8qW">
+                                        <rect key="frame" x="10" y="10" width="355.5" height="257"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Emergency Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azo-96-76J">
+                                                <rect key="frame" x="0.0" y="0.0" width="221.5" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-H1-2hl">
+                                                <rect key="frame" x="0.0" y="43.5" width="355.5" height="213.5"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-yW-fO5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="263.5" height="213.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScrollableContactCell" id="teu-wO-yRW" customClass="ScrollableContactCell" customModule="KeepMeSafe" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="263.5" height="35"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="teu-wO-yRW" id="kxi-N8-SCM">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="263.5" height="34.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go add a contact!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-du-Hlb">
+                                                                            <rect key="frame" x="14" y="-2" width="155.5" height="39"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="nameLabel" destination="zwd-du-Hlb" id="p36-c1-bfZ"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-Ts-XMT">
+                                                        <rect key="frame" x="273.5" y="79" width="82" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="82" id="3tV-gD-UEZ"/>
+                                                            <constraint firstAttribute="height" constant="56" id="SNA-mC-M7S"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Edit Contacts">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="7NW-HN-PKK" kind="show" id="ham-Xi-j3S"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="cpD-Ts-XMT" firstAttribute="leading" secondItem="3X2-yW-fO5" secondAttribute="trailing" constant="10" id="HU5-HT-A5R"/>
+                                                    <constraint firstItem="3X2-yW-fO5" firstAttribute="leading" secondItem="JHm-H1-2hl" secondAttribute="leading" id="bzD-1s-90T"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3X2-yW-fO5" secondAttribute="bottom" id="hfa-R1-w21"/>
+                                                    <constraint firstItem="3X2-yW-fO5" firstAttribute="top" secondItem="JHm-H1-2hl" secondAttribute="top" id="nXz-Vd-a1m"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="JHm-H1-2hl" firstAttribute="top" secondItem="azo-96-76J" secondAttribute="bottom" constant="20" id="BBm-5b-q1I"/>
+                                            <constraint firstAttribute="bottom" secondItem="JHm-H1-2hl" secondAttribute="bottom" id="MfS-Eg-cte"/>
+                                            <constraint firstAttribute="trailing" secondItem="JHm-H1-2hl" secondAttribute="trailing" id="eio-h8-eIh"/>
+                                            <constraint firstItem="JHm-H1-2hl" firstAttribute="leading" secondItem="7vn-2K-8qW" secondAttribute="leading" id="rBJ-8C-0Ib"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="7vn-2K-8qW" firstAttribute="top" secondItem="Ueh-pG-5d1" secondAttribute="top" constant="10" id="K3s-SM-vMY"/>
+                                    <constraint firstAttribute="trailing" secondItem="7vn-2K-8qW" secondAttribute="trailing" constant="10" id="NUI-Xd-ts1"/>
+                                    <constraint firstAttribute="bottom" secondItem="7vn-2K-8qW" secondAttribute="bottom" constant="10" id="Zcu-p4-D0h"/>
+                                    <constraint firstItem="7vn-2K-8qW" firstAttribute="leading" secondItem="Ueh-pG-5d1" secondAttribute="leading" constant="10" id="iGv-RL-ydS"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPt-EW-Gdh">
-                                <rect key="frame" x="-0.5" y="361.5" width="375.5" height="256.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPt-EW-Gdh">
+                                <rect key="frame" x="-0.5" y="341" width="375.5" height="277"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Emergency Message" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-4a-IKf">
-                                        <rect key="frame" x="8" y="8" width="225" height="28"/>
+                                        <rect key="frame" x="18" y="23" width="225" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
                                         <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" fixedFrame="YES" text="NAME is deemed unsafe and may be in danger. You are one of their emergency contacts. Their current location is: LOCATION" lineBreakMode="wordWrap" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N4-Xa-2be">
-                                        <rect key="frame" x="10" y="52" width="242" height="194.5"/>
+                                        <rect key="frame" x="17.5" y="82" width="242" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
@@ -447,7 +474,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="T0n-se-DTr">
-                                        <rect key="frame" x="272" y="128" width="73" height="52"/>
+                                        <rect key="frame" x="278" y="123" width="82" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -463,6 +490,18 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="bottom" secondItem="839-Kh-R5V" secondAttribute="bottom" id="8BC-rv-K9d"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="height" secondItem="Ueh-pG-5d1" secondAttribute="height" id="Lr3-sd-61S"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="trailing" secondItem="839-Kh-R5V" secondAttribute="trailing" id="Lru-jd-sed"/>
+                            <constraint firstItem="Ueh-pG-5d1" firstAttribute="top" secondItem="839-Kh-R5V" secondAttribute="top" id="i1E-ml-kcw"/>
+                            <constraint firstItem="Ueh-pG-5d1" firstAttribute="trailing" secondItem="839-Kh-R5V" secondAttribute="trailing" id="oD0-5u-CaL"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="leading" secondItem="Fsm-xn-ugo" secondAttribute="leading" id="oWU-KV-Zsg"/>
+                            <constraint firstItem="Ueh-pG-5d1" firstAttribute="leading" secondItem="Fsm-xn-ugo" secondAttribute="leading" id="pKN-RB-mWJ"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="top" secondItem="Ueh-pG-5d1" secondAttribute="bottom" id="pym-M9-vZv"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="width" secondItem="Ueh-pG-5d1" secondAttribute="width" id="rKp-Im-TRa"/>
+                            <constraint firstItem="JPt-EW-Gdh" firstAttribute="top" secondItem="Ueh-pG-5d1" secondAttribute="bottom" id="x9i-x9-2z7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="839-Kh-R5V"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configure" id="XrG-JB-Ipx">
@@ -495,7 +534,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a contact, select their phone number!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkW-ma-O9y">
-                                    <rect key="frame" x="44.5" y="-8" width="286" height="16"/>
+                                    <rect key="frame" x="44.5" y="63.5" width="286" height="16"/>
                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
