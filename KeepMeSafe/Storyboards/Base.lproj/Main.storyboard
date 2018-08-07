@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +27,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a recording to play it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwj-CV-pEM">
-                                    <rect key="frame" x="99.5" y="13.5" width="176" height="17"/>
+                                    <rect key="frame" x="99.5" y="14" width="176" height="16"/>
                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -108,91 +109,186 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ7-DO-M1A">
-                                <rect key="frame" x="0.0" y="64" width="375" height="322"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ego-vB-Tle">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="exq-gM-7Br">
-                                        <rect key="frame" x="210" y="188" width="100" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="sJS-LJ-lbI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-QR-Oht">
-                                        <rect key="frame" x="67" y="188" width="100" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="cLX-MS-MEu"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-Yw-vrR">
-                                        <rect key="frame" x="53" y="8" width="270" height="105"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="40"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="20" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="JFi-lG-A82">
-                                        <rect key="frame" x="65" y="132" width="247" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="sliderChanged:" destination="ZWn-4Q-H9u" eventType="valueChanged" id="fbz-HT-Qy1"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaQ-UH-2vw">
-                                        <rect key="frame" x="53" y="263" width="270" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
-                                        <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ7-DO-M1A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="346.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ia6-Ix-gnv">
+                                                <rect key="frame" x="25" y="15" width="325" height="316.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-Yw-vrR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="79"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="40"/>
+                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="20" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="JFi-lG-A82">
+                                                        <rect key="frame" x="-2" y="79" width="329" height="80.5"/>
+                                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="sliderChanged:" destination="ZWn-4Q-H9u" eventType="valueChanged" id="fbz-HT-Qy1"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="b6V-OT-GzI">
+                                                        <rect key="frame" x="0.0" y="158.5" width="325" height="79"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-QR-Oht">
+                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="79"/>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
+                                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Cancel">
+                                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="cancelPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="cLX-MS-MEu"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="exq-gM-7Br">
+                                                                <rect key="frame" x="200" y="0.0" width="125" height="79"/>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
+                                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Start">
+                                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="startPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="sJS-LJ-lbI"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaQ-UH-2vw">
+                                                        <rect key="frame" x="0.0" y="237.5" width="325" height="79"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                                        <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="b6V-OT-GzI" firstAttribute="top" secondItem="JFi-lG-A82" secondAttribute="bottom" id="3ph-Lr-q0o"/>
+                                                    <constraint firstItem="b6V-OT-GzI" firstAttribute="leading" secondItem="ia6-Ix-gnv" secondAttribute="leading" id="4dp-lS-rdr"/>
+                                                    <constraint firstItem="JFi-lG-A82" firstAttribute="top" secondItem="qjE-Yw-vrR" secondAttribute="bottom" id="7hg-pY-9ih"/>
+                                                    <constraint firstAttribute="trailing" secondItem="b6V-OT-GzI" secondAttribute="trailing" id="BEl-SB-rmd"/>
+                                                    <constraint firstItem="JFi-lG-A82" firstAttribute="top" secondItem="qjE-Yw-vrR" secondAttribute="bottom" id="J7h-DT-T1z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JFi-lG-A82" secondAttribute="trailing" id="KKp-OF-EKA"/>
+                                                    <constraint firstItem="JFi-lG-A82" firstAttribute="leading" secondItem="ia6-Ix-gnv" secondAttribute="leading" id="L0G-lB-xmD"/>
+                                                    <constraint firstItem="KaQ-UH-2vw" firstAttribute="leading" secondItem="ia6-Ix-gnv" secondAttribute="leading" id="SHL-Ud-COV"/>
+                                                    <constraint firstItem="qjE-Yw-vrR" firstAttribute="leading" secondItem="ia6-Ix-gnv" secondAttribute="leading" id="Tjw-TT-ZGK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qjE-Yw-vrR" secondAttribute="trailing" id="W3H-3m-vWy"/>
+                                                    <constraint firstItem="qjE-Yw-vrR" firstAttribute="top" secondItem="ia6-Ix-gnv" secondAttribute="top" id="a6T-Gm-w6g"/>
+                                                    <constraint firstItem="KaQ-UH-2vw" firstAttribute="top" secondItem="b6V-OT-GzI" secondAttribute="bottom" id="b2w-FC-Mqr"/>
+                                                    <constraint firstItem="b6V-OT-GzI" firstAttribute="top" secondItem="JFi-lG-A82" secondAttribute="bottom" id="d4s-CK-MPg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KaQ-UH-2vw" secondAttribute="bottom" id="mJA-b5-biR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KaQ-UH-2vw" secondAttribute="trailing" id="nE2-tl-dYs"/>
+                                                    <constraint firstItem="KaQ-UH-2vw" firstAttribute="top" secondItem="b6V-OT-GzI" secondAttribute="bottom" id="vXb-Ec-gpj"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ia6-Ix-gnv" firstAttribute="top" secondItem="ZZ7-DO-M1A" secondAttribute="top" constant="15" id="D4J-e8-jj0"/>
+                                            <constraint firstAttribute="trailing" secondItem="ia6-Ix-gnv" secondAttribute="trailing" constant="25" id="SSg-5E-cb1"/>
+                                            <constraint firstItem="ia6-Ix-gnv" firstAttribute="leading" secondItem="ZZ7-DO-M1A" secondAttribute="leading" constant="25" id="rPv-CB-mVY"/>
+                                            <constraint firstAttribute="bottom" secondItem="ia6-Ix-gnv" secondAttribute="bottom" constant="15" id="t8K-la-CXb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-BU-2co">
+                                        <rect key="frame" x="0.0" y="346.5" width="375" height="207.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-gc-q1G">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDj-zh-aIB">
+                                                        <rect key="frame" x="5" y="5" width="365" height="40"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When timer ends, play alarm sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTM-0T-3O1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="316" height="40"/>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0i-QY-0wB">
+                                                                <rect key="frame" x="316" y="0.0" width="51" height="40"/>
+                                                            </switch>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="s0i-QY-0wB" secondAttribute="trailing" id="RFy-YM-jB7"/>
+                                                            <constraint firstItem="sTM-0T-3O1" firstAttribute="top" secondItem="RDj-zh-aIB" secondAttribute="top" id="aNJ-1T-dJJ"/>
+                                                            <constraint firstItem="s0i-QY-0wB" firstAttribute="top" secondItem="RDj-zh-aIB" secondAttribute="top" id="bew-04-FKa"/>
+                                                            <constraint firstItem="sTM-0T-3O1" firstAttribute="leading" secondItem="RDj-zh-aIB" secondAttribute="leading" id="fyN-yU-OvA"/>
+                                                            <constraint firstAttribute="bottom" secondItem="sTM-0T-3O1" secondAttribute="bottom" id="jay-QW-dbD"/>
+                                                            <constraint firstAttribute="bottom" secondItem="s0i-QY-0wB" secondAttribute="bottom" id="oeC-8R-AUL"/>
+                                                            <constraint firstItem="s0i-QY-0wB" firstAttribute="leading" secondItem="sTM-0T-3O1" secondAttribute="trailing" id="sP3-GR-1TM"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="RDj-zh-aIB" firstAttribute="centerY" secondItem="p4c-gc-q1G" secondAttribute="centerY" id="A2O-Pa-ddS"/>
+                                                    <constraint firstItem="RDj-zh-aIB" firstAttribute="leading" secondItem="p4c-gc-q1G" secondAttribute="leading" constant="5" id="JLM-eD-vme"/>
+                                                    <constraint firstAttribute="height" constant="50" id="O7f-od-KvB"/>
+                                                    <constraint firstItem="RDj-zh-aIB" firstAttribute="top" secondItem="p4c-gc-q1G" secondAttribute="top" constant="5" id="XPC-Dm-dri"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RDj-zh-aIB" secondAttribute="bottom" constant="5" id="aRu-ux-K6l"/>
+                                                    <constraint firstItem="RDj-zh-aIB" firstAttribute="centerX" secondItem="p4c-gc-q1G" secondAttribute="centerX" id="agi-Uu-EHa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RDj-zh-aIB" secondAttribute="trailing" constant="5" id="d9O-CZ-3FM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWz-Ad-hlF">
+                                                <rect key="frame" x="0.0" y="50" width="375" height="158"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKV-zu-J1H">
+                                                        <rect key="frame" x="133.5" y="53" width="109" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="52" id="Ifd-G2-Twy"/>
+                                                            <constraint firstAttribute="width" constant="109" id="lYN-de-vme"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="22"/>
+                                                        <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Play Recording">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="8EP-gp-GdC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="dKV-zu-J1H" firstAttribute="centerY" secondItem="ZWz-Ad-hlF" secondAttribute="centerY" id="PJ3-eq-ndH"/>
+                                                    <constraint firstItem="dKV-zu-J1H" firstAttribute="centerX" secondItem="ZWz-Ad-hlF" secondAttribute="centerX" id="zYi-t9-5Ni"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="p4c-gc-q1G" firstAttribute="top" secondItem="ZKZ-BU-2co" secondAttribute="top" id="4nK-wD-bB1"/>
+                                            <constraint firstItem="ZWz-Ad-hlF" firstAttribute="top" secondItem="p4c-gc-q1G" secondAttribute="bottom" id="6qD-8o-v8O"/>
+                                            <constraint firstItem="ZWz-Ad-hlF" firstAttribute="top" secondItem="p4c-gc-q1G" secondAttribute="bottom" id="7lI-J2-Fgi"/>
+                                            <constraint firstItem="p4c-gc-q1G" firstAttribute="leading" secondItem="ZKZ-BU-2co" secondAttribute="leading" id="VwW-tJ-hCe"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZWz-Ad-hlF" secondAttribute="trailing" id="hAc-VP-HJf"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZWz-Ad-hlF" secondAttribute="bottom" id="oYn-lz-UZd"/>
+                                            <constraint firstItem="ZWz-Ad-hlF" firstAttribute="leading" secondItem="ZKZ-BU-2co" secondAttribute="leading" id="w3K-cO-tiK"/>
+                                            <constraint firstAttribute="trailing" secondItem="p4c-gc-q1G" secondAttribute="trailing" id="yOC-u2-TW1"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-gc-q1G">
-                                <rect key="frame" x="0.0" y="384" width="375" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When timer ends, play alarm sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTM-0T-3O1">
-                                        <rect key="frame" x="8" y="8" width="281" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0i-QY-0wB">
-                                        <rect key="frame" x="297" y="8" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </switch>
-                                </subviews>
-                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dKV-zu-J1H">
-                                <rect key="frame" x="132" y="496" width="110" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="22"/>
-                                <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Play Recording">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="playPressed:" destination="ZWn-4Q-H9u" eventType="touchUpInside" id="8EP-gp-GdC"/>
-                                </connections>
-                            </button>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZKZ-BU-2co" secondAttribute="trailing" id="IB7-Ie-EkG"/>
+                                    <constraint firstItem="ZKZ-BU-2co" firstAttribute="leading" secondItem="ego-vB-Tle" secondAttribute="leading" id="Lwb-Z8-a61"/>
+                                    <constraint firstItem="ZKZ-BU-2co" firstAttribute="height" secondItem="ZZ7-DO-M1A" secondAttribute="height" multiplier="0.6" id="a5Z-Q2-Pk2"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZKZ-BU-2co" secondAttribute="bottom" id="d7a-cf-Wso"/>
+                                    <constraint firstItem="ZKZ-BU-2co" firstAttribute="top" secondItem="ZZ7-DO-M1A" secondAttribute="bottom" id="dBk-Sw-3eP"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ego-vB-Tle" firstAttribute="trailing" secondItem="0Yj-kx-ZeW" secondAttribute="trailing" id="AOy-xd-ewQ"/>
+                            <constraint firstItem="ego-vB-Tle" firstAttribute="leading" secondItem="0Yj-kx-ZeW" secondAttribute="leading" id="Fnz-QG-Q6u"/>
+                            <constraint firstItem="ego-vB-Tle" firstAttribute="top" secondItem="0Yj-kx-ZeW" secondAttribute="top" id="ene-Nz-x4C"/>
+                            <constraint firstItem="ego-vB-Tle" firstAttribute="bottom" secondItem="0Yj-kx-ZeW" secondAttribute="bottom" id="jAi-II-tGG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Yj-kx-ZeW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="VHA-bn-hbS">
@@ -305,7 +401,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-Ts-XMT">
-                                        <rect key="frame" x="268" y="150.5" width="73" height="32"/>
+                                        <rect key="frame" x="268" y="149.5" width="73" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="73" id="xNL-tZ-Sr7"/>
                                         </constraints>
@@ -454,7 +550,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a contact, select their phone number!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkW-ma-O9y">
-                                    <rect key="frame" x="44.5" y="107.5" width="286" height="16"/>
+                                    <rect key="frame" x="44.5" y="63.5" width="286" height="16"/>
                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
