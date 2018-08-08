@@ -45,8 +45,8 @@ class ConfigureViewController: UIViewController, UITableViewDataSource, UITableV
         
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             if error != nil {
-                print("There was an error with the Geocoder().reverse")
-                print(error?.localizedDescription)
+                //print("There was an error with the Geocoder().reverse")
+                //print(error?.localizedDescription)
             }
             else {
                 if let place = placemark?[0] {

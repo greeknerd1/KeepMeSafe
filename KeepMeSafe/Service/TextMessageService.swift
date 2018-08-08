@@ -24,7 +24,7 @@ class TextMessageService {
         ]
         
         Alamofire.request("https://pearl-partridge-8635.twil.io/sms", method: .post, parameters: parameters, headers: headers).response { response in
-            print(response)
+            //print(response)
             
         }
     }

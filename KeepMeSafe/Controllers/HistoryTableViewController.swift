@@ -25,7 +25,7 @@ class HistoryTableViewController: UITableViewController {
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
         } catch {
-            print("Setting category to AVAudioSessionCategoryPlayAndRecord in HistoryController.ViewDidLoad() failed.")
+            //print("Setting category to AVAudioSessionCategoryPlayAndRecord in HistoryController.ViewDidLoad() failed.")
         }
         
         AudioService.getAllAudios(for: User.current) { (audioFiles) in

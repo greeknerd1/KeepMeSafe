@@ -45,16 +45,16 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
         } catch {
-            print("Setting category to AVAudioSessionCategoryPlayAndRecord in HomeViewController.viewDidLoad() failed.")
+            //print("Setting category to AVAudioSessionCategoryPlayAndRecord in HomeViewController.viewDidLoad() failed.")
         }
 
         
         AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
             if hasPermission {
-                print("access to mic GRANTED")
+                //print("access to mic GRANTED")
             }
             else {
-                print("access to mic NOT GRANTED")
+                //print("access to mic NOT GRANTED")
             }
         }
         
@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             try alarmAudioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: alarmAudioPath!))
         }
         catch {
-            print("Error playing alarm audio")
+            //print("Error playing alarm audio")
         }
     }
     
@@ -259,7 +259,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
                 duration = String(Double(round(audioPlayer.duration*100)/100))
             }
             catch {
-                print("Error finding the time of recorder")
+                //print("Error finding the time of recorder")
             }
             AudioService.create(audioURL: audioURL, date: timestamp, duration: duration)
         }
@@ -282,7 +282,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
                 playLabel.setTitle("Stop Recording", for: .normal)
             }
             catch {
-                print("Error playing the recording!")
+                //print("Error playing the recording!")
             }
         }
     }

@@ -61,7 +61,7 @@ struct AudioService {
         let storageRef = Storage.storage().reference().child("audio/\(currentUser.uid)/\(audio.date).mp3")
         storageRef.delete { (error) in
             if (error != nil) {
-                print("Error deleting audiofile in Firebase Storage at: \(storageRef.name)")
+                //print("Error deleting audiofile in Firebase Storage at: \(storageRef.name)")
             }
         }
         
@@ -70,7 +70,7 @@ struct AudioService {
             databaseRef.removeValue()
         }
         else {
-            print("Error with deleting audiofile in Firebase Database in AudioService")
+            //print("Error with deleting audiofile in Firebase Database in AudioService")
         }
     }
 }

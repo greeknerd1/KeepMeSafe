@@ -40,7 +40,7 @@ struct ContactService {
             ref.removeValue()
         }
         else {
-            print("Error with removing contact in ContactService")
+            //print("Error with removing contact in ContactService")
         }
         
     }
