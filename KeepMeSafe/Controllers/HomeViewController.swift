@@ -202,7 +202,7 @@ class HomeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
                 self.messages = messages
             }
             for contact in contacts {
-                TextMessageService.sendTextMessage(phoneNumber: contact.number, message: "Keep Me Safe App: \(messages.first?.mainMessage ?? "Help! I may be in danger!") \(messages.first?.locationMessage ?? "No network connection to send my current location :(")")
+                TextMessageService.sendTextMessage(phoneNumber: contact.number, message: "Feel Safe iOS App: \(messages.first?.mainMessage ?? "Help! I may be in danger!") \(messages.first?.locationMessage ?? "No network connection to send my current location :(")")
             }
             //implement sending text message to contacts***********************
             displayAlert(title: "Emergency Message Sent!", message: "Audio Recording Saved!")
